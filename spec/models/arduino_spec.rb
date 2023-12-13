@@ -26,6 +26,11 @@ RSpec.describe Arduino, type: :model do
       expect(@arduino).to be_valid
     end
 
+    it 'arduino invalido com campos obrigatorios não preenchidos?' do
+      arduino = Arduino.new
+      expect(arduino).to be_valid
+    end
+
   end
 
 end
