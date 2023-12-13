@@ -18,4 +18,14 @@ RSpec.describe Arduino, type: :model do
 
   end
 
+  describe 'Testes de validação do model Arduino' do
+
+    it 'arduino valido com campos obrigatorios preenchidos?' do
+      @arduino.name = ''
+      @arduino.description = ''
+      expect(@arduino).to be_valid
+    end
+
+  end
+
 end
