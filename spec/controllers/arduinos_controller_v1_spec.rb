@@ -20,4 +20,12 @@ RSpec.describe Api::V1::ArduinosController, type: :controller do
     end
   end
 
+  describe 'POST /api/v1/arduinos' do
+    it 'Consegue criar um arduino e retornar status 201?' do
+      post :create, params: {arduino: {name: 'arduino mega', description: 'arduino extendido'}, format: :json}
+      expect(response.body).to include_json(name: 'arduino mega')
+      expect(response).to have_http_status(201)
+    end
+  end
+
 end
