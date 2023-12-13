@@ -37,4 +37,13 @@ RSpec.describe Api::V1::ArduinosController, type: :controller do
     end
   end
 
+  describe 'DELETE /api/v1/arduinos/id' do
+    it 'Consegue excluir um arduino e retornar status 204?' do
+      arduino = Arduino.last
+      delete :destroy, params: {id: arduino.id}
+      expect(Arduino.all).not_to include(arduino)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
