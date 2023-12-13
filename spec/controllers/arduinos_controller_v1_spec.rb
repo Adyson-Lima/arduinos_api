@@ -12,4 +12,12 @@ RSpec.describe Api::V1::ArduinosController, type: :controller do
     end
   end
 
+  describe 'GET /api/v1/arduinos/id' do
+    it 'Consegue listar um arduino especifico e retornar status 200?' do
+      get :show, params: {id: @arduino.id}
+      expect(response.body).to include_json(id: @arduino.id)
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
