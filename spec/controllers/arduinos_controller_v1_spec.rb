@@ -28,4 +28,13 @@ RSpec.describe Api::V1::ArduinosController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/arduinos/id' do
+    it 'Consegue atualizar um arduino e retornar status 200?' do
+      arduino = Arduino.last
+      patch :update, params: {arduino: {name: 'lilipad', description: 'placa circular'}, id: arduino.id}
+      expect(response.body).to include_json(name: 'lilipad')
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
