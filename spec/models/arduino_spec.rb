@@ -7,7 +7,7 @@ RSpec.describe Arduino, type: :model do
   describe 'Testes de preenchimento do model Arduino' do
 
     it 'name consegue ser preenchido?' do
-      @arduino.name = ''
+      @arduino.name = 'uno'
       expect(@arduino.name).to eq('uno')
     end
 
