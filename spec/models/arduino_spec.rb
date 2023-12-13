@@ -12,7 +12,7 @@ RSpec.describe Arduino, type: :model do
     end
 
     it 'description consegue ser preenchido?' do
-      @arduino.description = ''
+      @arduino.description = 'arduino mais usado'
       expect(@arduino.description).to eq('arduino mais usado')
     end
 
