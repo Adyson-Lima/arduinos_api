@@ -1,6 +1,6 @@
 class Api::V1::ArduinosController < ApplicationController
 
-  before_action :set_arduino, only: %i[show update] #show update destroy
+  before_action :set_arduino, only: %i[show update destroy] #show update destroy
 
   def index
     @arduinos = Arduino.all 
@@ -26,6 +26,10 @@ class Api::V1::ArduinosController < ApplicationController
     else
       render json: @arduino.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @arduino.destroy!
   end
 
 private
